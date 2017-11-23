@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0048)http://csc.amtron.in/assamese_editor/index.html# -->
+<html class="gr__csc_amtron_in"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Assamese Text Editor- Beta 0.1</title>
+	
+	<!--script language="Javascript" src="js-assamese/convert2assamese.js" type="text/javascript"></script-->
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/jquery-1.3.2.min.js" type="text/javascript"></script>
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/htmlbox.colors.js" type="text/javascript"></script>
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/htmlbox.styles.js" type="text/javascript"></script>
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/htmlbox.syntax.js" type="text/javascript"></script>
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/xhtml.js" type="text/javascript"></script>
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/htmlbox.full.js" type="text/javascript"></script>
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/jquery.client.js" type="text/javascript"></script>
+	<script language="Javascript" src="./Assamese Text Editor- Beta 0.1_files/showvkboard.js" type="text/javascript"></script>
+	<script src="./Assamese Text Editor- Beta 0.1_files/spellChecker.js"></script>
+	<style type="text/css">
+	 .dis-text{
+	 	font:normal 14px Trebuchet MS;
+	 }
+	
+	h1,h2{
+		margin:0px;
+		padding:0;
+	}
+	h1{
+		font:normal 28px Trebuchet MS;
+	}
+
+	h2{
+		font:normal 20px Trebuchet MS;
+	}
+	
+	.style-letters input {
+		background-color:#CC4400; 
+		color:#ffffff; 
+		width:45px;
+		font-size:24px;
+		height:40px;
+		font-family: asfont;
+	}
+
+	.style-letters .btn-style
+	{
+		background-color:#CC4400; 
+		color:#ffffff; 
+		width:auto;
+		font-size:14px;
+		height:40px;
+		font-family: Trebuchet MS;
+	}
+	
+	.style-en-text{
+		font-family: Trebuchet MS;
+	}
+
+	</style>
+	<style type="text/css">
+	<!-- /* $WEFT -- Created by: Diju () on 5/13/2010 -- */
+	 @font-face {
+		font-family: asfont;
+		font-style:  normal;
+		font-weight: normal;
+		_src: url(EKUSHEY0.eot);
+	}
+	  /* 
+	  @font-face {
+		font-family: asfont;
+		font-style:  normal;
+		font-weight: normal;
+		src: url('" +document.location.href+ "asfont.otf') format('opentype');
+	  }*/
+	-->
+	</style>
+	<script language="javascript" type="text/javascript">
+	function show()
+	{
+		document.getElementById("showhtml").value = document.body.innerHTML;
+	}
+	
+	function loadStyle()
+	{
+		var sheet = document.createElement('style');
+	
+		if($.client.browser=="Explorer")
+		{
+			//sheet.innerHTML = "@font-face {font-family: asfont; font-style: normal;font-weight: normal; src: url(EKUSHEY0.eot);}";
+			//sheet.innerHTML += "#shift-letters {font-family: asfont;font-family: Trebuchet MS;}";
+			//alert(sheet.innerHTML);
+			//document.body.appendChild(sheet);
+		}
+		else
+		{
+			if($.client.os=='Windows')
+			{
+				url = document.location.href;
+							
+				if(url.indexOf("#")!=-1)
+					url = url.substring(0,url.length-1);
+				
+				sheet.innerHTML ="@font-face {font-family: asfont;font-style:  normal;font-weight: normal; src: url('" + url + "asfont.otf') format('opentype');}";
+				
+				document.body.appendChild(sheet);
+			}
+		}
+		
+	}
+</script>
+		
+</head>
+
+<div class="gr-top-z-index gr-top-zero" tabindex="-1"><div class="_30JeG _2_2SE" style="transform: translate(1303.22px, 436px);"><div class="_2A3ER"><div class="_1y1wn _2R8DE undefined"></div><div class="_24Em3"><div class="_21QaI _1L80j" tabindex="-1"></div></div><div class="_2-7o4"></div><div class="_24Em3"><div class="_21QaI _1pbTT" data-action="editor" tabindex="-1"></div></div></div></div></div><div style="visibility: hidden; top: -9999px; position: absolute; opacity: 0;"><div class="_30JeG _2_2SE" style="transform: translate(1368.22px, 451px);"><div class="_2A3ER"><div class="_1y1wn _2R8DE undefined"></div><div class="_24Em3"><div class="_21QaI _1L80j" tabindex="-1"></div></div><div class="_2-7o4"></div><div class="_24Em3"><div class="_21QaI _1pbTT" data-action="editor" tabindex="-1"></div></div></div></div></div><div style="visibility: hidden; top: -9999px; position: absolute; opacity: 0;"></div><body onload="loadStyle()" data-gr-c-s-loaded="true">
+<!--div id="htmltext" style="height:400px;">sdvsdvdbdb</div-->
+
+<div><h1>Assamese Text Editor</h1><h1> </h1><h2>Beta Release 0.1</h2></div>
+<div style="margin-top:10px;">
+<a id="displayHelp" href="http://csc.amtron.in/assamese_editor/index.html#" class="dis-text" onclick="window.open(&#39;help/Linux_Mannual-assameseUnicode.pdf&#39;,&#39;mywindow&#39;,&#39;location= No&#39;, &#39;width=600,height=600,left=200,top=100,screenX=0,screenY=100&#39;)">Help on Typing Combined(conjunct) Letters</a>
+<br>
+<a id="displayText" href="http://csc.amtron.in/assamese_editor/index.html#" class="dis-text" onclick="toggle()">Show Virtual Keyboard</a>
+</div>
+
+<div style="margin-top:10px;">
+ <!--input type="radio" name="group1" id ="radio1" value="assamese" Checked > Assamese
+ <input type="radio" name="group1" id ="radio2" value="english"> English 
+ <br-->
+
+<form name="form1" id="form1">
+<table id="ha_wrap" width="99%" style="height: 300px; border: 1px solid rgb(126, 157, 185); background: rgb(215, 227, 242);" cellspacing="0" cellpadding="0"><tbody><tr><td class="ha_tb" valign="middle" style="height: 24px; border-bottom: 1px solid rgb(126, 157, 185);"><table cellspacing="1" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;cut&quot;)" title="Cut" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/cut.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;copy&quot;)" title="Copy" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/copy.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;paste&quot;)" title="Paste" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/paste.gif"></td><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;undo&quot;)" title="Undo" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/undo.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;redo&quot;)" title="Redo" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/redo.gif"></td><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;bold&quot;)" title="Bold" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/bold.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;italic&quot;)" title="Italic" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/italic.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;underline&quot;)" title="Underline" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/underline.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;strike&quot;)" title="Strikethrough" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/strike.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;sup&quot;)" title="Superscript" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/sup.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;sub&quot;)" title="Subscript" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/sub.gif"></td><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;justify&quot;)" title="Justify" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/justify.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;left&quot;)" title="Left" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/left.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;center&quot;)" title="Center" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/center.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;right&quot;)" title="Right" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/right.gif"></td><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;link&quot;)" title="Insert Link" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/link.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;unlink&quot;)" title="Remove Link" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/unlink.gif"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;image&quot;)" title="Insert Image" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/image.gif"></td></tr></tbody></table></td></tr><tr><td class="ha_tb" valign="middle" style="height: 24px; border-bottom: 1px solid rgb(126, 157, 185);"><table cellspacing="1" cellpadding="0"><tbody><tr><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;code&quot;)" title="View Code" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/code.gif"></td><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td valign="middle" align="center"><select id="ha_fontsize" onchange="global_hb[&quot;ha&quot;].cmd(&quot;fontsize&quot;,this.options[this.selectedIndex].value);this.options[0].selected=&quot;true&quot;;" style="font-size: 12px; border: 1px solid rgb(233, 234, 239); background: transparent; margin: 2px 2px 3px;"><option value="" selected="">- SIZE -</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option></select></td><td valign="middle" align="center"><select id="ha_fontcolor" onchange="global_hb[&quot;ha&quot;].cmd(&quot;fontcolor&quot;,this.options[this.selectedIndex].value);this.options[0].selected=&quot;true&quot;;" style="font-size: 12px; border: 1px solid rgb(233, 234, 239); background: transparent; margin: 2px 2px 3px;"><option value="" selected="">-COLOR-</option><option value="white" style="background:white;color:white;">white</option><option value="ivory" style="background:ivory;color:ivory;">ivory</option><option value="lightyellow" style="background:lightyellow;color:lightyellow;">lightyellow</option><option value="yellow" style="background:yellow;color:yellow;">yellow</option><option value="snow" style="background:snow;color:snow;">snow</option><option value="floralwhite" style="background:floralwhite;color:floralwhite;">floralwhite</option><option value="lemonchiffon" style="background:lemonchiffon;color:lemonchiffon;">lemonchiffon</option><option value="cornsilk" style="background:cornsilk;color:cornsilk;">cornsilk</option><option value="seashell" style="background:seashell;color:seashell;">seashell</option><option value="lavenderblush" style="background:lavenderblush;color:lavenderblush;">lavenderblush</option><option value="papayawhip" style="background:papayawhip;color:papayawhip;">papayawhip</option><option value="blanchedalmond" style="background:blanchedalmond;color:blanchedalmond;">blanchedalmond</option><option value="mistyrose" style="background:mistyrose;color:mistyrose;">mistyrose</option><option value="bisque" style="background:bisque;color:bisque;">bisque</option><option value="moccasin" style="background:moccasin;color:moccasin;">moccasin</option><option value="navajowhite" style="background:navajowhite;color:navajowhite;">navajowhite</option><option value="peachpuff" style="background:peachpuff;color:peachpuff;">peachpuff</option><option value="gold" style="background:gold;color:gold;">gold</option><option value="pink" style="background:pink;color:pink;">pink</option><option value="lightpink " style="background:lightpink ;color:lightpink ;">lightpink </option><option value="orange" style="background:orange;color:orange;">orange</option><option value="lightsalmon" style="background:lightsalmon;color:lightsalmon;">lightsalmon</option><option value="darkorange" style="background:darkorange;color:darkorange;">darkorange</option><option value="coral" style="background:coral;color:coral;">coral</option><option value="hotpink" style="background:hotpink;color:hotpink;">hotpink</option><option value="tomato" style="background:tomato;color:tomato;">tomato</option><option value="orangered" style="background:orangered;color:orangered;">orangered</option><option value="deeppink" style="background:deeppink;color:deeppink;">deeppink</option><option value="magenta" style="background:magenta;color:magenta;">magenta</option><option value="fuchsia" style="background:fuchsia;color:fuchsia;">fuchsia</option><option value="red" style="background:red;color:red;">red</option><option value="oldlace" style="background:oldlace;color:oldlace;">oldlace</option><option value="lightgoldenrodyellow" style="background:lightgoldenrodyellow;color:lightgoldenrodyellow;">lightgoldenrodyellow</option><option value=" linen" style="background: linen;color: linen;"> linen</option><option value="antiquewhite" style="background:antiquewhite;color:antiquewhite;">antiquewhite</option><option value="salmon" style="background:salmon;color:salmon;">salmon</option><option value="ghostwhite" style="background:ghostwhite;color:ghostwhite;">ghostwhite</option><option value="mintcream" style="background:mintcream;color:mintcream;">mintcream</option><option value="whitesmoke" style="background:whitesmoke;color:whitesmoke;">whitesmoke</option><option value="beige" style="background:beige;color:beige;">beige</option><option value="wheat" style="background:wheat;color:wheat;">wheat</option><option value="sandybrown" style="background:sandybrown;color:sandybrown;">sandybrown</option><option value="azure" style="background:azure;color:azure;">azure</option><option value="honeydew" style="background:honeydew;color:honeydew;">honeydew</option><option value="aliceblue" style="background:aliceblue;color:aliceblue;">aliceblue</option><option value="khaki" style="background:khaki;color:khaki;">khaki</option><option value="lightcoral " style="background:lightcoral ;color:lightcoral ;">lightcoral </option><option value="palegoldenrod" style="background:palegoldenrod;color:palegoldenrod;">palegoldenrod</option><option value="violet" style="background:violet;color:violet;">violet</option><option value="darksalmon" style="background:darksalmon;color:darksalmon;">darksalmon</option><option value="lavender" style="background:lavender;color:lavender;">lavender</option><option value="lightcyan" style="background:lightcyan;color:lightcyan;">lightcyan</option><option value="burlywood" style="background:burlywood;color:burlywood;">burlywood</option><option value="plum" style="background:plum;color:plum;">plum</option><option value="gainsboro" style="background:gainsboro;color:gainsboro;">gainsboro</option><option value="crimson" style="background:crimson;color:crimson;">crimson</option><option value="palevioletred" style="background:palevioletred;color:palevioletred;">palevioletred</option><option value="goldenrod" style="background:goldenrod;color:goldenrod;">goldenrod</option><option value="orchid" style="background:orchid;color:orchid;">orchid</option><option value="thistle" style="background:thistle;color:thistle;">thistle</option><option value="lightgrey" style="background:lightgrey;color:lightgrey;">lightgrey</option><option value="tan" style="background:tan;color:tan;">tan</option><option value="chocolate" style="background:chocolate;color:chocolate;">chocolate</option><option value="peru" style="background:peru;color:peru;">peru</option><option value="indianred" style="background:indianred;color:indianred;">indianred</option><option value="mediumvioletred" style="background:mediumvioletred;color:mediumvioletred;">mediumvioletred</option><option value="silver" style="background:silver;color:silver;">silver</option><option value="darkkhaki" style="background:darkkhaki;color:darkkhaki;">darkkhaki</option><option value="rosybrown" style="background:rosybrown;color:rosybrown;">rosybrown</option><option value="mediumorchid" style="background:mediumorchid;color:mediumorchid;">mediumorchid</option><option value="darkgoldenrod" style="background:darkgoldenrod;color:darkgoldenrod;">darkgoldenrod</option><option value="firebrick" style="background:firebrick;color:firebrick;">firebrick</option><option value="powderblue" style="background:powderblue;color:powderblue;">powderblue</option><option value="lightsteelblue" style="background:lightsteelblue;color:lightsteelblue;">lightsteelblue</option><option value="paleturquoise" style="background:paleturquoise;color:paleturquoise;">paleturquoise</option><option value="greenyellow" style="background:greenyellow;color:greenyellow;">greenyellow</option><option value="lightblue" style="background:lightblue;color:lightblue;">lightblue</option><option value="darkgray" style="background:darkgray;color:darkgray;">darkgray</option><option value="brown" style="background:brown;color:brown;">brown</option><option value="sienna" style="background:sienna;color:sienna;">sienna</option><option value="yellowgreen" style="background:yellowgreen;color:yellowgreen;">yellowgreen</option><option value="darkorchid" style="background:darkorchid;color:darkorchid;">darkorchid</option><option value="palegreen" style="background:palegreen;color:palegreen;">palegreen</option><option value="darkviolet" style="background:darkviolet;color:darkviolet;">darkviolet</option><option value="mediumpurple" style="background:mediumpurple;color:mediumpurple;">mediumpurple</option><option value="lightgreen" style="background:lightgreen;color:lightgreen;">lightgreen</option><option value="darkseagreen" style="background:darkseagreen;color:darkseagreen;">darkseagreen</option><option value="saddlebrown" style="background:saddlebrown;color:saddlebrown;">saddlebrown</option><option value="darkmagenta" style="background:darkmagenta;color:darkmagenta;">darkmagenta</option><option value="darkred" style="background:darkred;color:darkred;">darkred</option><option value="blueviolet" style="background:blueviolet;color:blueviolet;">blueviolet</option><option value="lightskyblue" style="background:lightskyblue;color:lightskyblue;">lightskyblue</option><option value="skyblue" style="background:skyblue;color:skyblue;">skyblue</option><option value="gray" style="background:gray;color:gray;">gray</option><option value="olive" style="background:olive;color:olive;">olive</option><option value="purple" style="background:purple;color:purple;">purple</option><option value="maroon" style="background:maroon;color:maroon;">maroon</option><option value="aquamarine" style="background:aquamarine;color:aquamarine;">aquamarine</option><option value="chartreuse" style="background:chartreuse;color:chartreuse;">chartreuse</option><option value="lawngreen" style="background:lawngreen;color:lawngreen;">lawngreen</option><option value="mediumslateblue" style="background:mediumslateblue;color:mediumslateblue;">mediumslateblue</option><option value="lightslategray" style="background:lightslategray;color:lightslategray;">lightslategray</option><option value="slategray" style="background:slategray;color:slategray;">slategray</option><option value="olivedrab" style="background:olivedrab;color:olivedrab;">olivedrab</option><option value="slateblue" style="background:slateblue;color:slateblue;">slateblue</option><option value="dimgray" style="background:dimgray;color:dimgray;">dimgray</option><option value="mediumaquamarine" style="background:mediumaquamarine;color:mediumaquamarine;">mediumaquamarine</option><option value="cornflowerblue" style="background:cornflowerblue;color:cornflowerblue;">cornflowerblue</option><option value="cadetblue" style="background:cadetblue;color:cadetblue;">cadetblue</option><option value="darkolivegreen" style="background:darkolivegreen;color:darkolivegreen;">darkolivegreen</option><option value="indigo" style="background:indigo;color:indigo;">indigo</option><option value="mediumturquoise" style="background:mediumturquoise;color:mediumturquoise;">mediumturquoise</option><option value="darkslateblue" style="background:darkslateblue;color:darkslateblue;">darkslateblue</option><option value="steelblue" style="background:steelblue;color:steelblue;">steelblue</option><option value="royalblue" style="background:royalblue;color:royalblue;">royalblue</option><option value="turquoise" style="background:turquoise;color:turquoise;">turquoise</option><option value="mediumseagreen" style="background:mediumseagreen;color:mediumseagreen;">mediumseagreen</option><option value="limegreen" style="background:limegreen;color:limegreen;">limegreen</option><option value="darkslategray" style="background:darkslategray;color:darkslategray;">darkslategray</option><option value="seagreen" style="background:seagreen;color:seagreen;">seagreen</option><option value="forestgreen" style="background:forestgreen;color:forestgreen;">forestgreen</option><option value="lightseagreen" style="background:lightseagreen;color:lightseagreen;">lightseagreen</option><option value="dodgerblue" style="background:dodgerblue;color:dodgerblue;">dodgerblue</option><option value="midnightblue" style="background:midnightblue;color:midnightblue;">midnightblue</option><option value="cyan" style="background:cyan;color:cyan;">cyan</option><option value="aqua" style="background:aqua;color:aqua;">aqua</option><option value="springgreen" style="background:springgreen;color:springgreen;">springgreen</option><option value="lime" style="background:lime;color:lime;">lime</option><option value="mediumspringgreen" style="background:mediumspringgreen;color:mediumspringgreen;">mediumspringgreen</option><option value="darkturquoise" style="background:darkturquoise;color:darkturquoise;">darkturquoise</option><option value="deepskyblue" style="background:deepskyblue;color:deepskyblue;">deepskyblue</option><option value="darkcyan" style="background:darkcyan;color:darkcyan;">darkcyan</option><option value="teal" style="background:teal;color:teal;">teal</option><option value="green" style="background:green;color:green;">green</option><option value="darkgreen" style="background:darkgreen;color:darkgreen;">darkgreen</option><option value="blue" style="background:blue;color:blue;">blue</option><option value="mediumblue" style="background:mediumblue;color:mediumblue;">mediumblue</option><option value="darkblue" style="background:darkblue;color:darkblue;">darkblue</option><option value="navy" style="background:navy;color:navy;">navy</option><option value="black" style="background:black;color:black;">black</option></select></td><td valign="middle" align="center"><img src="./Assamese Text Editor- Beta 0.1_files/separator.gif" style="margin-right:1px;margin-left:3px;height:13px;"></td><td class="ha_html_button" valign="middle" align="center" onclick="global_hb[&quot;ha&quot;].cmd(&quot;spellcheck&quot;)" title="Spelling Check" style="width: 16px; height: 16px; border: 1px solid transparent; background: transparent; margin: 1px; padding: 1px;"><img src="./Assamese Text Editor- Beta 0.1_files/spellcheck.gif"></td></tr></tbody></table></td></tr><tr><td id="ha_container" style="background: white;"><iframe id="ha_html" data-gramm_id="63d0343b-4e7b-952f-3489-b5e288b07e7d" data-gramm="true" gramm-ifr="true" spellcheck="false" style="width: 99%; height: 300px; border: 0px;" src="./Assamese Text Editor- Beta 0.1_files/saved_resource.html"></iframe><grammarly-btn><div class="_1BN1N Kzi1t MoE_1 _2DJZN" style="z-index: 2; transform: translate(1342.22px, 440px);"><div class="_1HjH7"><div title="Protected by Grammarly" class="_3qe6h">&nbsp;</div></div></div></grammarly-btn><textarea id="ha" name="textarea1" style="font-family: asfont; height: 300px; width: 99%; display: none;"></textarea></td></tr></tbody></table>
+<script language="Javascript" type="text/javascript">
+$("#ha").css("height","300px").css("width","99%").htmlbox({
+    toolbars:[
+	    [
+		// Cut, Copy, Paste
+		"separator","cut","copy","paste",
+		// Undo, Redo
+		"separator","undo","redo",
+		// Bold, Italic, Underline, Strikethrough, Sup, Sub
+		"separator","bold","italic","underline","strike","sup","sub",
+		// Left, Right, Center, Justify
+		"separator","justify","left","center","right",
+		// Ordered List, Unordered List, Indent, Outdent
+		//"separator","ol","ul","indent","outdent",
+		// Hyperlink, Remove Hyperlink, Image
+		"separator","link","unlink","image"
+		
+		],
+		[// Show code
+		"separator","code",
+        	// Formats, Font size, Font family, Font color, Font, Background
+        //"separator","formats","fontsize","fontfamily",
+		"separator","fontsize","fontcolor",
+		//"separator","fontcolor","highlight",
+		"separator","spellcheck"
+		]
+		//[
+		//Strip tags
+		//"separator","removeformat","striptags","hr","paragraph",
+		// Styles, Source code syntax buttons
+		//"separator","quote","styles","syntax"
+		//"separator","quote"
+		
+		//]
+	],
+	skin:"blue"
+});
+</script>
+</form>
+<!--font face="Trebuchet MS"></font-->
+</div>
+
+<div id="img1" align="center" style="padding-top:10px; clear:both;display:block;">
+<img src="./Assamese Text Editor- Beta 0.1_files/kbAssamese_Phonetic-tp.jpg" alt="Assamese Phonetic Keyboard" width="800px" height="251px">
+</div>
+
+<!--Virtual Keyboard Code-->
+<!--iframe src="keyboard.htm" width="750px" height="400px;"></iframe-->
+
+
+<div id="letters" align="center" style="padding-top:10px;display:none;">
+	<div id="msg" style="margin-bottom:5px; font-weight:bold;" class="dis-text">&nbsp;</div>
+<table id="unshift-letters" border="0" cellpadding="1" cellspacing="1" bgcolor="#DAD7E9" class="style-letters" style="display:block;" width="730px">
+<tbody><tr><td colspan="14"></td></tr>
+<tr>
+	<td width="50" align="right"><input id="cell_d" type="Button" value="`" onclick="disp(this.value)"></td>
+	<td width="47"><input id="cell1" type="Button" value="১" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell2" type="Button" value="২" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell3" type="Button" value="৩" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell4" type="Button" value="৪" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell5" type="Button" value="৫" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell6" type="Button" value="৬" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell7" type="Button" value="৭" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell8" type="Button" value="৮" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell9" type="Button" value="৯" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell0" type="Button" value="০" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_min" type="Button" value="-" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_ql" type="Button" value="=" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="95" class="style-en-text">Backspace</td>
+</tr>
+<tr>
+	<td align="Center" class="style-en-text">Tab</td>
+	<td><input id="cellq" type="Button" value="দ" onclick="disp(this.value)"></td>
+	<td><input id="cellw" type="Button" value="ূ" onclick="disp(this.value)"></td>
+	<td><input id="celle" type="Button" value="ী" onclick="disp(this.value)"></td>
+	<td><input id="cellr" type="Button" value="ৰ" onclick="disp(this.value)"></td>
+	<td><input id="cellt" type="Button" value="ট" onclick="disp(this.value)"></td>
+	<td><input id="celly" type="Button" value="এ" onclick="disp(this.value)"></td>
+	<td><input id="cellu" type="Button" value="ু" onclick="disp(this.value)"></td>
+	<td><input id="celli" type="Button" value="ি" onclick="disp(this.value)"></td>
+	<td><input id="cello" type="Button" value="ও" onclick="disp(this.value)"></td>
+	<td><input id="cellp" type="Button" value="প" onclick="disp(this.value)"></td>
+	<td><input id="cell_3bo" type="Button" value="ে" onclick="disp(this.value)"></td>
+	<td><input id="cell_3bc" type="Button" value="ো" onclick="disp(this.value)"></td>
+	<td align="left"><input id="cell_bslash" type="Button" value="ৱ" onclick="disp(this.value)"></td>
+</tr>
+<tr>
+  <td align="right"><input id="cellCaps1" class="btn-style" type="Button" value="Caps" onclick="setCaps(&#39;1&#39;);showhide(&#39;shift-letters&#39;,&#39;unshift-letters&#39;);"></td>
+  <td><input id="cella" type="Button" value="া" onclick="disp(this.value)"></td>
+  <td><input id="cells" type="Button" value="স" onclick="disp(this.value)"></td>
+  <td><input id="celld" type="Button" value="ড" onclick="disp(this.value)"></td>
+  <td><input id="cellf" type="Button" value="ত" onclick="disp(this.value)"></td>
+  <td><input id="cellg" type="Button" value="গ" onclick="disp(this.value)"></td>
+  <td><input id="cellh" type="Button" value="হ" onclick="disp(this.value)"></td>
+  <td><input id="cellj" type="Button" value="জ" onclick="disp(this.value)"></td>
+  <td><input id="cellk" type="Button" value="ক" onclick="disp(this.value)"></td>
+  <td><input id="celll" type="Button" value="ল" onclick="disp(this.value)"></td>
+  <td><input id="cell_sc" type="Button" value=";" onclick="disp(this.value)"></td>
+  <td><input id="cell_ss" type="Button" value="&#39;" onclick="disp(this.value)"></td>
+  <td colspan="2" align="center" class="style-en-text">Enter</td>
+  </tr>
+<tr>
+  <td colspan="2" align="center">
+	<input id="cellshift1" class="btn-style" type="Button" value="Shift" onclick="setShift(&#39;1&#39;);showhide(&#39;shift-letters&#39;,&#39;unshift-letters&#39;);" style="Width:100px;">
+  </td>
+  <td><input id="cellz" type="Button" value="য়" onclick="disp(this.value)"></td>
+  <td><input id="cellx" type="Button" value="শ" onclick="disp(this.value)"></td>
+  <td><input id="cellc" type="Button" value="চ" onclick="disp(this.value)"></td>
+  <td><input id="cellv" type="Button" value="আ" onclick="disp(this.value)"></td>
+  <td><input id="cellb" type="Button" value="ব" onclick="disp(this.value)"></td>
+  <td><input id="celln" type="Button" value="ন" onclick="disp(this.value)"></td>
+  <td><input id="cellm" type="Button" value="ম" onclick="disp(this.value)"></td>
+  <td><input id="cell_coma" type="Button" value="," onclick="disp(this.value)"></td>
+  <td><input id="cell_stop" type="Button" value="৷ " onclick="disp(this.value)"></td>
+  <td><input id="cell_fslash" type="Button" value="্" onclick="disp(this.value)"></td>
+  <td colspan="2" align="left">
+	<input id="cellshift2" class="btn-style" type="Button" value="Shift" onclick="setShift(&#39;1&#39;);showhide(&#39;shift-letters&#39;,&#39;unshift-letters&#39;);" style="Width:130px;">
+  </td>
+</tr>
+<tr><td colspan="14"></td></tr>
+
+</tbody></table>
+
+<table id="shift-letters" border="0" cellpadding="1" cellspacing="1" bgcolor="#DAD7E9" class="style-letters" style="display:none;" width="730px">
+<tbody><tr><td colspan="14"></td></tr>
+<tr>
+	<td width="50" align="right"><input id="cell_til" type="Button" value="~" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="47"><input id="cell_exc" type="Button" value="!" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_ar" type="Button" value="@" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="45"><input id="cell_hes" type="Button" value="#" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="45"><input id="cell_dollar" type="Button" value="ৎ" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_per" type="Button" value="%" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="45"><input id="cell_cap" type="Button" value="ঞ" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_amp" type="Button" value="&amp;" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="45"><input id="cell_start" type="Button" value="*" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="45"><input id="cell_fbs" type="Button" value="(" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_fbe" type="Button" value=")" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_us" type="Button" value="_" onclick="disp(this.value)"></td>
+	<td width="45"><input id="cell_plus" type="Button" value="+" onclick="disp(this.value)" style="font-family:Trebuchet MS;"></td>
+	<td width="95" class="style-en-text">Backspace</td>
+</tr>
+<tr>
+	<td align="center" class="style-en-text">Tab</td>
+	<td><input id="cell29" type="Button" value="ধ" onclick="disp(this.value)"></td>
+	<td><input id="cell6" type="Button" value="ঊ" onclick="disp(this.value)"></td>
+	<td><input id="cell4" type="Button" value="ঈ" onclick="disp(this.value)"></td>
+	<td><input id="cell45" type="Button" value="ড়" onclick="disp(this.value)"></td>
+	<td><input id="cell22" type="Button" value="ঠ" onclick="disp(this.value)"></td>
+	<td><input id="cell9" type="Button" value="ঐ" onclick="disp(this.value)"></td>
+	<td><input id="cell5" type="Button" value="উ" onclick="disp(this.value)"></td>
+	<td><input id="cell3" type="Button" value="ই" onclick="disp(this.value)"></td>
+	<td><input id="cell11" type="Button" value="ঔ" onclick="disp(this.value)"></td>
+	<td><input id="cell32" type="Button" value="ফ" onclick="disp(this.value)"></td>
+	<td><input id="cell58" type="Button" value="ৈ" onclick="disp(this.value)"></td>
+	<td><input id="cell60" type="Button" value="ৌ " onclick="disp(this.value)"></td>
+	<td><input id="cell44" type="Button" value="ক্ষ" onclick="disp(this.value)"></td>
+</tr>
+<tr>
+  <td align="right"><input id="cellCaps2" class="btn-style" type="Button" value="Caps" onclick="setCaps(&#39;0&#39;);showhide(&#39;unshift-letters&#39;,&#39;shift-letters&#39;);"></td>
+  <td><input id="cell1" type="Button" value="অ" onclick="disp(this.value)"></td>
+  <td><input id="cell41" type="Button" value="ষ" onclick="disp(this.value)"></td>
+  <td><input id="cell24" type="Button" value="ঢ" onclick="disp(this.value)"></td>
+  <td><input id="cell27" type="Button" value="থ" onclick="disp(this.value)"></td>
+  <td><input id="cell15" type="Button" value="ঘ" onclick="disp(this.value)"></td>
+  <td><input id="cell50" type="Button" value="ঃ" onclick="disp(this.value)"></td>
+  <td><input id="cell19" type="Button" value="ঝ" onclick="disp(this.value)"></td>
+  <td><input id="cell13" type="Button" value="খ" onclick="disp(this.value)"></td>
+  <td><input id="cell49" type="Button" value="ং" onclick="disp(this.value)"></td>
+  <td><input id="cell49" type="Button" value=":" onclick="disp(this.value)"></td>
+  <td><input id="cell49" type="Button" value="&quot;" onclick="disp(this.value)"></td>
+  <td colspan="2" align="center" class="style-en-text">Enter</td>
+  </tr>
+<tr>
+  <td colspan="2" align="center">
+  	<input id="cellshift3" class="btn-style" type="Button" value="Shift" onclick="setShift(&#39;0&#39;);showhide(&#39;unshift-letters&#39;,&#39;shift-letters&#39;);" style="Width:100px;">
+  </td>
+  <td><input id="cell36" type="Button" value="য" onclick="disp(this.value)"></td>
+  <td><input id="cell46" type="Button" value="ঢ়" onclick="disp(this.value)"></td>
+  <td><input id="cell18" type="Button" value="ছ" onclick="disp(this.value)"></td>
+  <td><input id="cell7" type="Button" value="ঋ" onclick="disp(this.value)"></td>
+  <td><input id="cell34" type="Button" value="ভ" onclick="disp(this.value)"></td>
+  <td><input id="cell25" type="Button" value="ণ" onclick="disp(this.value)"></td>
+  <td><input id="cell16" type="Button" value="ঙ" onclick="disp(this.value)"></td>
+  <td><input id="cell61" type="Button" value="ৃ" onclick="disp(this.value)"></td>
+  <td><input id="cell62" type="Button" value="ৄ" onclick="disp(this.value)"></td>
+  <td><input id="cell62" type="Button" value="?" onclick="disp(this.value)"></td>
+  <td colspan="2" align="left">
+  	<input id="cellshift4" class="btn-style" type="Button" value="Shift" onclick="setShift(&#39;0&#39;);showhide(&#39;unshift-letters&#39;,&#39;shift-letters&#39;);" style="Width:130px;">
+  </td>
+</tr>
+<tr><td colspan="14"></td></tr>
+
+</tbody></table>
+
+</div>
+
+<div align="center" style="padding-top:10px; clear:both;"></div>
+<!--input type="button" name="showh" id="show" onClick="show();" value="Show" />
+<textarea id="showhtml" name="showhtml" rows="30" cols="100" style="font-size:24px;"></textarea-->
+
+
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span><div><div class="gr_-editor gr-iframe-first-load" style="display: none;"><div class="gr_-editor_back"></div><iframe class="gr_-ifr gr-_dialog-content" src="./Assamese Text Editor- Beta 0.1_files/saved_resource(1).html"></iframe></div></div><grammarly-card><div></div></grammarly-card></html>
